@@ -1,0 +1,24 @@
+---
+webhook_url: YOUR-SECRET-WEBHOOK
+
+repositories:
+  - url: https://packages.revolutionpi.de
+    distribution: stretch
+    architecture: armhf
+    components:
+      - main
+  - url: https://packages.revolutionpi.de
+    distribution: buster
+    architecture: armhf
+    components:
+      - main
+  - url: https://packages.revolutionpi.de
+    distribution: bullseye
+    architecture: armhf
+    components:
+      - main
+  - url: https://packages.revolutionpi.de
+    distribution: bullseye
+    architecture: arm64
+    components:
+      - main
