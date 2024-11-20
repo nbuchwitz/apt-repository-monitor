@@ -11,7 +11,7 @@ from repository_monitor import Package, Repo
 
 def new_package_notification(webhook_url: str, repository: str, distribution: str, architecture: str, packages: List[Package]):
     title = f"📦 Neue Pakete im APT-Repository ({distribution} / {architecture})"
-    text = f"Es wurden {len(packages)} neue Pakete im APT-Repository {repository} veröffentlicht."
+    text = f"Es wurden {len(packages)} neue Pakete im APT-Repository {repository} veröffentlicht.\nDie Liste aller Änderungen findet sich unter https://kunbus-gmbh.atlassian.net/wiki/spaces/EN/pages/3264774241/Rolling+Release+Notes"
     facts = [
         {
             "name": package.name,

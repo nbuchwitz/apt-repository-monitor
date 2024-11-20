@@ -22,3 +22,8 @@ repositories:
     architecture: arm64
     components:
       - main
+  - url: https://packages.revolutionpi.de
+    distribution: bookworm
+    architecture: arm64
+    components:
+      - main
