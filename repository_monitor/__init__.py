@@ -66,14 +66,15 @@ class Repo:
 
     def check_updates(self, *, repo_created_callback: callable = None):
         for component in self.components:
-            filename = f"cache/packages_{url2path(self.url)}" \
-                f"_{self.dist}_{component}_binary-{self.arch}"
+            filename = f"cache/packages_{url2path(self.url)}" f"_{self.dist}_{component}_binary-{self.arch}"
 
             if not os.path.exists(filename):
-                print(f"Initial download of {self.url} with "
-                      f" distribution={self.dist}"
-                      f" architecture={self.arch}"
-                      f" component={component}")
+                print(
+                    f"Initial download of {self.url} with "
+                    f" distribution={self.dist}"
+                    f" architecture={self.arch}"
+                    f" component={component}"
+                )
 
                 self.download_package_list(component, filename)
 
@@ -92,10 +93,12 @@ class Repo:
                     # save new package list for later
                     shutil.copyfile(tmp.name, filename)
 
-                    print(f"Found {len(new_packages)} new packages in {self.url} with"
-                          f" distribution={self.dist}"
-                          f" architecture={self.arch}"
-                          f" component={component}")
+                    print(
+                        f"Found {len(new_packages)} new packages in {self.url} with"
+                        f" distribution={self.dist}"
+                        f" architecture={self.arch}"
+                        f" component={component}"
+                    )
 
                     return new_packages
 
@@ -113,10 +116,12 @@ class Repo:
         packages = []
 
         with open(package_list, "r") as f:
-            lookup = {"Package": "name",
-                      "Version": "version",
-                      "SHA1": "sha1",
-                      "Filename": "filename"}
+            lookup = {
+                "Package": "name",
+                "Version": "version",
+                "SHA1": "sha1",
+                "Filename": "filename",
+            }
 
             entry = {}
 
@@ -128,7 +133,10 @@ class Repo:
                             # some attributes have been parsed, let's try to create a Package()
                             packages.append(Package(**entry))
                     except TypeError as te:
-                        print(f"Failed to create list entry for package: {te}", file=sys.stderr)
+                        print(
+                            f"Failed to create list entry for package: {te}",
+                            file=sys.stderr,
+                        )
 
                     entry = {}
                     continue
